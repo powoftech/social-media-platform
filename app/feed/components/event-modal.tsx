@@ -33,7 +33,6 @@ interface EventModalProps {
 const EventModal = ({
   open,
   setOpen,
-  setNestedEventModal,
   nestedEventModal,
   formData,
   setFormData,
@@ -41,7 +40,7 @@ const EventModal = ({
   const [isTimeDropdownVisible, setTimeDropdownVisible] = useState(false);
   const [isConfirmModalOpen, setIsConfirmModalOpen] = useState(false);
   const [isImageEditorModalOpen, setIsImageEditorModalOpen] = useState(false);
-  const [isEditImageOpen, setIsEditImageOpen] = useState(false);
+  const [isEditImageOpen] = useState(false);
   const [isEditImageDropdownOpen, setIsEditImageDropdownOpen] = useState(false);
   const [isHavingText, setIsHavingText] = useState(false);
   const [triggerReset, setTriggerReset] = useState(false);
@@ -86,7 +85,7 @@ const EventModal = ({
       setFormData(defaultEvent);
       setTriggerReset(false);
     }
-  }, [isHavingText, triggerReset]);
+  }, [isHavingText, setFormData, triggerReset]);
   const handleClickOutside = (event: MouseEvent) => {
     if (
       timezonedropdownRef.current &&

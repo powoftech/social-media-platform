@@ -27,7 +27,7 @@ const useSearchingCategoriesList = () => {
             active: pathname === '/search/people',
             pathname: '/search/people',
         },
-    ], []);
+    ], [pathname]);
     return list
 }
 export default useSearchingCategoriesList;

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -30,7 +31,7 @@ const JobContainer = ({ index, item, label, lists }: JobContainerProps) => {
             <AvatarFallback>CN</AvatarFallback>
           </Avatar>
         ) : (
-          <img src="https://github.com/shadcn.png" className="size-16" />
+          <Image src="https://github.com/shadcn.png" alt="Profile picture" className="size-16" />
         )}
         <div className="flex flex-col space-y-1">
           <p className="text-lg font-semibold hover:underline">{item.label}</p>

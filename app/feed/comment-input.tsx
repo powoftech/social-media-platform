@@ -43,7 +43,7 @@ const CommentInput = ({
     } else if (textareaRef.current) {
       textareaRef.current.focus();
     }
-  }, [commentText, imageUrl]);
+  }, [commentText, imageUrl, textareaRef]);
 
   const renderInputField = () => (
     <div className={inputClass}>

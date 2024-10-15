@@ -17,11 +17,6 @@ const JobPostingDescription = ({
   const quillRef = useRef<Quill | null>(null);
   const [isMounted, setIsMounted] = useState(false);
   const [wordCount, setWordCount] = useState(0);
-  useEffect(() => {
-    setIsMounted(true);
-    handleTextChange();
-  }, []);
-
   const handleTextChange = useCallback(() => {
     let text = "";
     if (quillRef.current) {
@@ -41,7 +36,12 @@ const JobPostingDescription = ({
       .trim();
     const charCount = plainText?.length || 0;
     setWordCount(charCount);
-  }, [quillText]);
+  }, [formData, setFormData]);
+
+  useEffect(() => {
+    setIsMounted(true);
+    handleTextChange();
+  }, [handleTextChange]);
 
   useEffect(() => {
     if (isMounted && containerRef.current && !quillRef.current) {
@@ -65,7 +65,7 @@ const JobPostingDescription = ({
       quillRef.current?.off("text-change");
       quillRef.current = null;
     };
-  }, [isMounted]);
+  }, [formData.description, handleTextChange, isMounted]);
 
   useEffect(() => {
     if (quillRef.current) {
@@ -73,7 +73,7 @@ const JobPostingDescription = ({
         handleTextChange();
       });
     }
-  }, [quillText]);
+  }, [handleTextChange, quillText]);
 
   return (
     <>
