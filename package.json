@@ -40,6 +40,7 @@
     "react-image-crop": "^11.0.7",
     "react-pdf": "^9.1.1",
     "react-photo-editor": "^2.1.4",
+    "sharp": "^0.33.5",
     "social-media-platform": "file:",
     "sonner": "^1.5.0",
     "tailwind-merge": "^2.5.2",
